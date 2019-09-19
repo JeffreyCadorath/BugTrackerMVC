@@ -1,0 +1,77 @@
+﻿@model BugTrackerProject.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Assigned Developer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedUser.Email)
+        </dd>
+
+        <dt>
+            Creator
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creator.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketTypes.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketTypes.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            Comments
+        </dt>
+        <dd>
+            @foreach(var item in Model.TicketComments)
+            {
+                <div><strong>@item.User.UserName</strong></div>
+                <br />
+                <div>
+                    @item.Comment
+                </div>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

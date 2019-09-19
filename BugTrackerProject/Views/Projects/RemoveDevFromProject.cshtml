@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "RemoveDevFromProject";
+}
+
+<h2>Remove Dev From Project</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("user", "User")
+    @Html.DropDownList("project", "Project")
+    <input type="submit" value="Add" />
+}
